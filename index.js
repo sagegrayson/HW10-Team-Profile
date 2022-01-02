@@ -47,29 +47,31 @@ function bottomHTML() {
 
 // Inquirer ----------------------------------------------
 function generate() {
-	inquirer.prompt([
-		{
-			type: "input",
-			message: "Employee ID?",
-			name: "empID",
-		},
-		{
-			type: "input",
-			message: "Employee Name?",
-			name: "empName",
-		},
-		{
-			type: "input",
-			message: "Employee Email?",
-			name: "empEmail",
-		},
-		{
-			type: "list",
-			message: "Employee Role?",
-			choices: ["Manager", "Engineer", "Intern"],
-			name: "empRole",
-		},
-	]);
+	inquirer
+		.prompt([
+			{
+				type: "input",
+				message: "Employee ID?",
+				name: "empID",
+			},
+			{
+				type: "input",
+				message: "Employee Name?",
+				name: "empName",
+			},
+			{
+				type: "input",
+				message: "Employee Email?",
+				name: "empEmail",
+			},
+			{
+				type: "list",
+				message: "Employee Role?",
+				choices: ["Manager", "Engineer", "Intern"],
+				name: "empRole",
+			},
+		])
+		.then(console.log(answers));
 }
 
 // INITIAL ================================================
