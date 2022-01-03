@@ -32,11 +32,13 @@ then exit app, generate html
 
 # Team Profile Generator [![Do WTF You Want To](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/)
 
-![screenshot](assets/images/screenshot.png)
+![screenshot](assets/screenshot.png)
 
 ## Description
 
 Utilizing inquirer, js, and constructor models, this project will generate a static HTML page containing a team's information.
+
+[Demo Video](https://watch.screencastify.com/v/Hgz1Uzf4rmmJ14GB3lzR)
 
 ## Contents
 
