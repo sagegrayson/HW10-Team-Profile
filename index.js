@@ -31,17 +31,23 @@ const bottomHTML = `
 
 function generate(employees) {
 	// Top HTML
-	fs.writeFile("./dist/output.html", topHTML, function (err) {
-		if (err) {
-			console.log(err);
-		}
-	});
+	// fs.writeFile("./dist/output.html", topHTML, function (err) {
+	// 	if (err) {
+	// 		console.log(err);
+	// 	}
+	// });
 
-	fs.appendFile("./dist/output.html", bottomHTML, function (err) {
-		if (err) {
-			console.log(err);
-		}
-	});
+	for (let i = 0; i < employees.length; i++) {
+		const element = employees[i];
+		console.log(element)
+		
+	}
+
+	// fs.appendFile("./dist/output.html", bottomHTML, function (err) {
+	// 	if (err) {
+	// 		console.log(err);
+	// 	}
+	// });
 }
 
 // Inquirer ----------------------------------------------
