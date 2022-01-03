@@ -38,9 +38,11 @@ function generate(employees) {
 	// });
 
 	for (let i = 0; i < employees.length; i++) {
-		const element = employees[i];
-		console.log(element)
-		
+		const employee = employees[i];
+		console.log(employee.constructor.name);
+		if (employee.constructor.name === "Manager"){
+			console.log("nice!")
+		}
 	}
 
 	// fs.appendFile("./dist/output.html", bottomHTML, function (err) {
@@ -148,8 +150,8 @@ function getInfo() {
 					if (response.return) {
 						getInfo();
 					} else {
-						console.log(employees);
-						// generate(employees);
+						// console.log(employees);
+						generate(employees);
 					}
 				});
 		});
