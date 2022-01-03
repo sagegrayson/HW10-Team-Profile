@@ -6,7 +6,6 @@ const fs = require("fs");
 const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
-const { Console } = require("console");
 
 // VARS ===================================================
 
@@ -37,8 +36,6 @@ function generate(employees) {
 			console.log(err);
 		}
 	});
-
-	
 
 	fs.appendFile("./dist/output.html", bottomHTML, function (err) {
 		if (err) {
@@ -106,19 +103,47 @@ function getInfo() {
 					},
 				])
 				.then((response) => {
-					employees.push({
-						id: answer.empID,
-						name: answer.empName,
-						email: answer.empEmail,
-						role: answer.empRole,
-						info: response.empInfo,
-					});
+					let empToAdd;
+					switch (answer.empRole) {
+						case "Manager":
+							empToAdd = new Manager(
+								answer.empID,
+								answer.empName,
+								answer.empEmail,
+								response.empInfo
+							);
+							employees.push(empToAdd);
+							break;
+
+						case "Engineer":
+							empToAdd = new Engineer(
+								answer.empID,
+								answer.empName,
+								answer.empEmail,
+								response.empInfo
+							);
+							employees.push(empToAdd);
+							break;
+
+						case "Intern":
+							empToAdd = new Intern(
+								answer.empID,
+								answer.empName,
+								answer.empEmail,
+								response.empInfo
+							);
+							employees.push(empToAdd);
+							break;
+
+						default:
+							console.log("you did that again?");
+					}
 
 					if (response.return) {
-						generate();
+						getInfo();
 					} else {
 						console.log(employees);
-						generate(employees);
+						// generate(employees);
 					}
 				});
 		});
